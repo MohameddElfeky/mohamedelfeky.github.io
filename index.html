@@ -1,550 +1,567 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="الموقع الرسمي للأستاذ محمد الفقي - محتوى تعليمي ومهني">
-  <title>محمد الفقي | الموقع الرسمي</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<meta name="description" content="الموقع الرسمي للأستاذ محمد الفقي - محتوى تعليمي وموارد ودروس في اللغة العربية">
 
-    body {
-      font-family: "Tahoma", "Arial", sans-serif;
-      background: #f7f8fc;
-      color: #172033;
-      line-height: 1.8;
-    }
+<title>محمد الفقي | الموقع الرسمي</title>
 
-    :root {
-      --primary: #14213d;
-      --secondary: #c9a227;
-      --light: #ffffff;
-      --text: #172033;
-      --muted: #697386;
-      --border: #e7e9ef;
-    }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-    /* شريط التنقل */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    line-height: 1.8;
+}
+
+:root {
+    --primary: #14213d;
+    --secondary: #c9a227;
+    --white: #ffffff;
+    --light: #f5f7fb;
+    --text: #172033;
+    --muted: #687386;
+}
+
+/* شريط التنقل */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(20, 33, 61, 0.97);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+}
+
+.nav-container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+/* الواجهة الرئيسية */
+.hero {
+    min-height: 90vh;
+    background:
+        linear-gradient(135deg, rgba(20,33,61,.97), rgba(20,33,61,.86)),
+        radial-gradient(circle at top left, #c9a227, transparent 35%);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    max-width: 1150px;
+    width: 100%;
+    margin: auto;
+    padding: 70px 25px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 70px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 span {
+    color: var(--secondary);
+}
+
+.hero-text h2 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: #e4e8ef;
+    font-size: 18px;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(201,162,39,.3);
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* الصورة */
+.profile-card {
+    text-align: center;
+}
+
+.profile-card img {
+    width: 310px;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 7px solid var(--secondary);
+    box-shadow: 0 15px 45px rgba(0,0,0,.35);
+}
+
+/* الأقسام */
+section {
+    padding: 85px 25px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: var(--primary);
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+/* عني */
+.about {
+    background: white;
+}
+
+.about-box {
+    background: #f8f9fc;
+    padding: 40px;
+    border-radius: 20px;
+    border-right: 5px solid var(--secondary);
+    font-size: 18px;
+}
+
+/* البطاقات */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,.07);
+    transition: .3s;
+    border-top: 3px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-top-color: var(--secondary);
+}
+
+.card-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+/* الإنجازات */
+.achievements {
+    background: var(--primary);
+    color: white;
+}
+
+.achievements .section-title h2 {
+    color: white;
+}
+
+.achievements .section-title p {
+    color: #d9dee8;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.achievement {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 18px;
+}
+
+.achievement strong {
+    display: block;
+    color: var(--secondary);
+    font-size: 40px;
+}
+
+/* التواصل */
+.contact-box {
+    background: white;
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,.06);
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+/* الفوتر */
+footer {
+    background: #0c162b;
+    color: #dce1ea;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer span {
+    color: var(--secondary);
+}
+
+/* الجوال */
+@media (max-width: 850px) {
 
     .nav-container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: bold;
-      color: var(--primary);
-    }
-
-    .logo span {
-      color: var(--secondary);
+        flex-direction: column;
+        gap: 10px;
     }
 
     .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--secondary);
-    }
-
-    /* الواجهة الرئيسية */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 25px 70px;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(201,162,39,.12), transparent 30%),
-        linear-gradient(135deg, #ffffff, #f0f3f9);
-    }
-
-    .hero-container {
-      max-width: 1150px;
-      width: 100%;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(42px, 6vw, 72px);
-      color: var(--primary);
-      line-height: 1.2;
-      margin-bottom: 15px;
-    }
-
-    .hero-text h1 span {
-      color: var(--secondary);
-    }
-
-    .hero-text h2 {
-      font-size: 25px;
-      margin-bottom: 20px;
-      color: #3b465a;
-    }
-
-    .hero-text p {
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 650px;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: .3s;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(20,33,61,.2);
-    }
-
-    .btn-outline {
-      border: 2px solid var(--primary);
-      color: var(--primary);
-    }
-
-    .btn-outline:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    /* الصورة */
-    .profile {
-      display: flex;
-      justify-content: center;
-    }
-
-    .profile-frame {
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      padding: 8px;
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
-      box-shadow: 0 25px 60px rgba(20,33,61,.2);
-    }
-
-    .profile-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      background: #e9edf5;
-    }
-
-    /* الأقسام */
-    section {
-      padding: 90px 25px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 38px;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-    }
-
-    /* عني */
-    .about {
-      background: white;
-    }
-
-    .about-box {
-      background: #f8f9fc;
-      border: 1px solid var(--border);
-      padding: 35px;
-      border-radius: 18px;
-      font-size: 18px;
-      color: #4c566a;
-    }
-
-    /* البطاقات */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      transition: .3s;
-      box-shadow: 0 10px 30px rgba(20,33,61,.04);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(20,33,61,.10);
-    }
-
-    .icon {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      color: var(--primary);
-      margin-bottom: 10px;
-      font-size: 21px;
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    /* الإنجازات */
-    .achievements {
-      background: var(--primary);
-      color: white;
-    }
-
-    .achievements .section-title h2,
-    .achievements .section-title p {
-      color: white;
-    }
-
-    .achievement-number {
-      font-size: 42px;
-      font-weight: bold;
-      color: var(--secondary);
-    }
-
-    .achievement-title {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    /* التواصل */
-    .contact-box {
-      text-align: center;
-      background: white;
-      padding: 45px 25px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      margin-bottom: 25px;
-      font-size: 18px;
-    }
-
-    /* الفوتر */
-    footer {
-      background: #0d172b;
-      color: #cbd2df;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    footer strong {
-      color: white;
-    }
-
-    /* الجوال */
-    @media (max-width: 800px) {
-      .nav-container {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .nav-links {
         gap: 12px;
         flex-wrap: wrap;
         justify-content: center;
-      }
+    }
 
-      .hero-container {
+    .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
-      }
-
-      .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-
-      .profile {
-        order: -1;
-      }
-
-      .profile-frame {
-        width: 240px;
-        height: 240px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title h2 {
-        font-size: 30px;
-      }
+        gap: 40px;
     }
-  </style>
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-text h2 {
+        font-size: 21px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .profile-card {
+        order: -1;
+    }
+
+    .profile-card img {
+        width: 230px;
+        height: 230px;
+    }
+
+    .cards,
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- القائمة -->
-  <nav>
+<!-- شريط التنقل -->
+<nav>
     <div class="nav-container">
-      <div class="logo">محمد <span>الفقي</span></div>
+        <div class="logo">محمد <span>الفقي</span></div>
 
-      <ul class="nav-links">
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#about">من أنا</a></li>
-        <li><a href="#education">المحتوى</a></li>
-        <li><a href="#achievements">الإنجازات</a></li>
-        <li><a href="#contact">تواصل معي</a></li>
-      </ul>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">عني</a></li>
+            <li><a href="#lessons">دروسي</a></li>
+            <li><a href="#achievements">إنجازاتي</a></li>
+            <li><a href="#resources">مواردي</a></li>
+            <li><a href="#contact">تواصل معي</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
-
-  <!-- الرئيسية -->
-  <section class="hero" id="home">
+<!-- الرئيسية -->
+<section class="hero" id="home">
     <div class="hero-container">
 
-      <div class="hero-text">
-        <h1>محمد <span>الفقي</span></h1>
+        <div class="hero-text">
+            <h1>الأستاذ <span>محمد الفقي</span></h1>
 
-        <h2>معلم وصانع محتوى تعليمي</h2>
+            <h2>معلم لغة عربية وصانع محتوى تعليمي</h2>
 
-        <p>
-          أهلاً بكم في موقعي الشخصي، حيث أشارك المحتوى التعليمي
-          والأنشطة والمبادرات التي تهدف إلى دعم التعلم،
-          وتنمية مهارات الطلاب، وصناعة تجربة تعليمية أكثر إبداعًا.
-        </p>
+            <p>
+                أهلاً بكم في موقعي الرسمي، حيث أشارك المحتوى التعليمي
+                والدروس والموارد التي تسهم في تطوير مهارات الطلاب
+                وتعزيز حب اللغة العربية والتعلم.
+            </p>
 
-        <div class="buttons">
-          <a href="#about" class="btn btn-primary">تعرف عليّ</a>
-          <a href="#contact" class="btn btn-outline">تواصل معي</a>
+            <div class="buttons">
+                <a href="#about" class="btn btn-primary">تعرّف إليّ</a>
+                <a href="#lessons" class="btn btn-outline">استكشف المحتوى</a>
+            </div>
         </div>
-      </div>
 
-      <div class="profile">
-        <div class="profile-frame">
-          <!-- ضع صورتك هنا لاحقًا -->
-          <img src="https://via.placeholder.com/500x500.png?text=محمد+الفقي"
-               alt="صورة محمد الفقي">
+        <div class="profile-card">
+            <img src="profile.jpg" alt="الأستاذ محمد الفقي">
         </div>
-      </div>
 
     </div>
-  </section>
+</section>
 
-
-  <!-- من أنا -->
-  <section class="about" id="about">
+<!-- عني -->
+<section class="about" id="about">
     <div class="container">
 
-      <div class="section-title">
-        <h2>من أنا؟</h2>
-        <p>نبذة مختصرة</p>
-      </div>
+        <div class="section-title">
+            <h2>نبذة عني</h2>
+            <p>رحلة تعليمية هدفها صناعة أثر</p>
+        </div>
 
-      <div class="about-box">
-        <p>
-          أنا <strong>محمد الفقي</strong>، معلم مهتم بتطوير العملية التعليمية
-          وتقديم محتوى يساعد الطلاب على التعلم بطريقة واضحة وممتعة.
-          أؤمن بأن التعليم الحقيقي لا يقتصر على نقل المعرفة،
-          بل يسهم في بناء شخصية الطالب وتنمية مهاراته وقدراته.
-        </p>
-      </div>
+        <div class="about-box">
+            <p>
+                أؤمن بأن التعليم رسالة، وأن المعلم الناجح لا يكتفي
+                بنقل المعرفة، بل يسعى إلى إلهام طلابه وتنمية مهاراتهم
+                وبناء شخصياتهم العلمية واللغوية.
+            </p>
+
+            <br>
+
+            <p>
+                أحرص على تقديم المحتوى التعليمي بأساليب حديثة وممتعة،
+                مع التركيز على الفهم والتطبيق وتنمية التفكير لدى الطلاب.
+            </p>
+        </div>
 
     </div>
-  </section>
+</section>
 
-
-  <!-- المحتوى التعليمي -->
-  <section id="education">
+<!-- الدروس -->
+<section id="lessons">
     <div class="container">
 
-      <div class="section-title">
-        <h2>المحتوى التعليمي</h2>
-        <p>مجالات أهتم بتقديمها وتطويرها</p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="icon">📚</div>
-          <h3>الدروس التعليمية</h3>
-          <p>
-            محتوى تعليمي مبسط ومنظم يساعد الطلاب على فهم الدروس
-            واستيعاب المهارات الأساسية.
-          </p>
+        <div class="section-title">
+            <h2>دروسي التعليمية</h2>
+            <p>محتوى تعليمي مبسط وهادف</p>
         </div>
 
-        <div class="card">
-          <div class="icon">📝</div>
-          <h3>أوراق العمل</h3>
-          <p>
-            تدريبات وأنشطة متنوعة تساعد على تثبيت المفاهيم
-            وقياس مدى فهم الطلاب.
-          </p>
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>اللغة العربية</h3>
+                <p>
+                    دروس وتدريبات تساعد الطلاب على إتقان مهارات
+                    اللغة العربية وفهم قواعدها.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>التفكير والتعلم</h3>
+                <p>
+                    أنشطة واستراتيجيات تعليمية لتنمية التفكير
+                    والفهم والتفاعل داخل الصف.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">✏️</div>
+                <h3>التدريبات</h3>
+                <p>
+                    تدريبات متنوعة وأسئلة تساعد الطالب على تثبيت
+                    المهارات وقياس مستوى الفهم.
+                </p>
+            </div>
+
         </div>
-
-        <div class="card">
-          <div class="icon">🎯</div>
-          <h3>الأنشطة التعليمية</h3>
-          <p>
-            أنشطة واستراتيجيات تعليمية تجعل التعلم أكثر
-            تفاعلًا ومتعة للطلاب.
-          </p>
-        </div>
-
-      </div>
-
     </div>
-  </section>
+</section>
 
-
-  <!-- الإنجازات -->
-  <section class="achievements" id="achievements">
+<!-- الإنجازات -->
+<section class="achievements" id="achievements">
     <div class="container">
 
-      <div class="section-title">
-        <h2>الإنجازات</h2>
-        <p>مسيرة من العطاء والتطوير المستمر</p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="achievement-number">01</div>
-          <div class="achievement-title">التميز التعليمي</div>
-          <p>
-            الاهتمام بتطوير أساليب التعليم وتحسين تجربة الطالب.
-          </p>
+        <div class="section-title">
+            <h2>الإنجازات والطموحات</h2>
+            <p>نحو تعليم أكثر تأثيرًا وإبداعًا</p>
         </div>
 
-        <div class="card">
-          <div class="achievement-number">02</div>
-          <div class="achievement-title">المحتوى التعليمي</div>
-          <p>
-            إعداد مواد وتدريبات تعليمية متنوعة تخدم الطلاب.
-          </p>
+        <div class="achievement-grid">
+
+            <div class="achievement">
+                <strong>01</strong>
+                <h3>تعليم مؤثر</h3>
+                <p>تقديم تجربة تعليمية تركز على الطالب.</p>
+            </div>
+
+            <div class="achievement">
+                <strong>02</strong>
+                <h3>محتوى مبتكر</h3>
+                <p>توظيف استراتيجيات وأساليب تعليمية حديثة.</p>
+            </div>
+
+            <div class="achievement">
+                <strong>03</strong>
+                <h3>طموح مستمر</h3>
+                <p>التطوير المستمر وبناء أثر تعليمي مستدام.</p>
+            </div>
+
         </div>
-
-        <div class="card">
-          <div class="achievement-number">03</div>
-          <div class="achievement-title">التطوير المستمر</div>
-          <p>
-            السعي المستمر إلى تطوير المهارات والأفكار التعليمية.
-          </p>
-        </div>
-
-      </div>
-
     </div>
-  </section>
+</section>
 
-
-  <!-- التواصل -->
-  <section id="contact">
+<!-- الموارد -->
+<section id="resources">
     <div class="container">
 
-      <div class="section-title">
-        <h2>تواصل معي</h2>
-        <p>يسعدني تواصلكم واستفساراتكم</p>
-      </div>
+        <div class="section-title">
+            <h2>الموارد التعليمية</h2>
+            <p>مساحة مخصصة للملفات والمواد التعليمية</p>
+        </div>
 
-      <div class="contact-box">
+        <div class="cards">
 
-        <p>
-          للتواصل والاستفسارات يمكنكم التواصل معي عبر واتساب.
-        </p>
+            <div class="card">
+                <div class="card-icon">📄</div>
+                <h3>أوراق العمل</h3>
+                <p>ملفات وأنشطة تعليمية قابلة للاستخدام داخل الصف.</p>
+            </div>
 
-        <!-- غيّر الرقم إلى رقمك -->
-        <a
-          href="https://wa.me/966500000000"
-          class="btn btn-primary"
-          target="_blank">
-          💬 تواصل عبر واتساب
-        </a>
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h3>الاختبارات</h3>
+                <p>نماذج أسئلة وتقييمات متنوعة للطلاب.</p>
+            </div>
 
-      </div>
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>الاستراتيجيات</h3>
+                <p>أفكار واستراتيجيات تجعل التعلم أكثر متعة وفاعلية.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- التواصل -->
+<section id="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>تواصل معي</h2>
+            <p>يسعدني التواصل معكم</p>
+        </div>
+
+        <div class="contact-box">
+            <p>
+                يمكنكم التواصل معي ومتابعة جديد المحتوى التعليمي
+                عبر وسائل التواصل التي ستتم إضافتها إلى الموقع.
+            </p>
+
+            <a href="mailto:" class="btn btn-primary">
+                مراسلتي عبر البريد
+            </a>
+        </div>
 
     </div>
-  </section>
+</section>
 
-
-  <!-- التذييل -->
-  <footer>
+<!-- الفوتر -->
+<footer>
     <p>
-      © 2026 جميع الحقوق محفوظة —
-      <strong>محمد الفقي</strong>
+        © 2026 <span>محمد الفقي</span> — جميع الحقوق محفوظة
     </p>
-  </footer>
+</footer>
 
 </body>
 </html>
