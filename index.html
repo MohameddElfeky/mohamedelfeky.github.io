@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>محمد الفقي | الموقع الشخصي</title>
+<title>محمد الفقي | Personal Portfolio</title>
 
 <meta name="description"
-content="الموقع الشخصي لمحمد الفقي — التعليم والإبداع وصناعة الأثر.">
+content="الموقع الشخصي لمحمد الفقي — التعليم، الإبداع، الابتكار وصناعة الأثر">
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
+/* =========================================================
+   CORE
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+    --bg:#070b12;
+    --bg2:#0b111b;
+    --card:#0e1622;
+    --card2:#111c2a;
+
+    --gold:#d8b56a;
+    --gold2:#f1d99a;
+
+    --white:#ffffff;
+    --text:#e8edf5;
+    --muted:#8995a7;
+
+    --line:rgba(255,255,255,.08);
+
+    --max:1250px;
+}
 
 *{
     margin:0;
@@ -27,1446 +46,1179 @@ html{
 }
 
 body{
-    font-family:
-    "Segoe UI",
-    Tahoma,
-    Arial,
-    sans-serif;
-
-    background:#f7f8fb;
-    color:#182235;
+    font-family:"Cairo",Tahoma,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
     line-height:1.8;
+    overflow-x:hidden;
+}
+
+body::selection{
+    background:var(--gold);
+    color:#000;
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
-img{
-    max-width:100%;
+button{
+    font-family:inherit;
 }
 
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-:root{
-
-    --navy:#0b1f3a;
-    --navy2:#102d50;
-
-    --gold:#c9a45c;
-    --gold-light:#e4c98e;
-
-    --white:#ffffff;
-
-    --text:#182235;
-    --muted:#6b7789;
-
-    --light:#f7f8fb;
-
-    --border:#e6e9ef;
-
-    --shadow:
-        0 25px 70px rgba(9,29,54,.10);
-
-    --radius:24px;
+.container{
+    width:min(var(--max),calc(100% - 50px));
+    margin:auto;
 }
 
 
-/* =====================================================
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background-grid{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+    background-size:55px 55px;
+
+    mask-image:linear-gradient(to bottom,#000,transparent 90%);
+}
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    pointer-events:none;
+    filter:blur(100px);
+    opacity:.13;
+    z-index:-1;
+}
+
+.glow.one{
+    background:#c99c4d;
+    top:-180px;
+    right:-120px;
+}
+
+.glow.two{
+    background:#265b91;
+    bottom:-220px;
+    left:-150px;
+}
+
+
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 header{
-
     position:fixed;
-
-    top:0;
+    top:18px;
     right:0;
     left:0;
-
-    z-index:999;
-
-    background:
-        rgba(255,255,255,.88);
-
-    backdrop-filter:
-        blur(18px);
-
-    border-bottom:
-        1px solid rgba(20,40,65,.08);
+    z-index:1000;
 }
 
-.navbar{
-
-    max-width:1200px;
-
+.nav{
+    width:min(1120px,calc(100% - 35px));
     margin:auto;
 
-    height:82px;
+    height:68px;
 
-    padding:0 25px;
+    padding:0 22px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
+
+    background:rgba(12,18,28,.72);
+    border:1px solid var(--line);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
 }
 
 .logo{
-
-    font-size:24px;
-
+    font-size:21px;
     font-weight:900;
-
-    color:var(--navy);
-
-    letter-spacing:-1px;
+    white-space:nowrap;
 }
 
 .logo span{
-
     color:var(--gold);
 }
 
-.nav-links{
-
+.menu{
     display:flex;
-
     align-items:center;
-
-    gap:30px;
-
+    gap:28px;
     list-style:none;
 }
 
-.nav-links a{
-
-    color:#536174;
-
-    font-size:15px;
-
-    font-weight:600;
-
+.menu a{
+    font-size:13px;
+    color:#aeb8c7;
     transition:.3s;
 }
 
-.nav-links a:hover{
+.menu a:hover{
+    color:var(--gold2);
+}
 
-    color:var(--gold);
+.menu .contact-link{
+    color:#071018;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    padding:9px 17px;
+    border-radius:11px;
+    font-weight:800;
 }
 
 
-/* زر التواصل */
-
-.nav-button{
-
-    padding:
-        10px 20px;
-
-    border-radius:
-        12px;
-
-    background:
-        var(--navy);
-
-    color:white !important;
-
-    transition:.3s;
-}
-
-.nav-button:hover{
-
-    transform:
-        translateY(-2px);
-
-    background:
-        var(--gold);
-}
-
-
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
-
-    min-height:
-        100vh;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
 
     padding:
-        150px 25px 90px;
+        150px 0
+        90px;
 
     position:relative;
-
-    overflow:hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(201,164,92,.18),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 10% 80%,
-            rgba(16,45,80,.10),
-            transparent 30%
-        ),
-
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #f3f6fa
-        );
 }
 
-
-/* زخرفة الخلفية */
-
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(201,164,92,.15);
-
-    left:-250px;
-    top:100px;
-}
-
-.hero-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
+.hero-wrap{
     display:grid;
-
-    grid-template-columns:
-        1.1fr .9fr;
-
-    gap:80px;
-
+    grid-template-columns:1.05fr .95fr;
     align-items:center;
+    gap:90px;
 }
 
 
-/* النص */
+/* HERO TEXT */
 
-.hero-content{
-
-    animation:
-        fadeUp 1s ease;
-}
-
-.hero-badge{
-
+.eyebrow{
     display:inline-flex;
-
     align-items:center;
+    gap:9px;
 
-    gap:10px;
+    padding:7px 13px;
 
-    padding:
-        8px 15px;
+    border:1px solid rgba(216,181,106,.2);
 
-    margin-bottom:22px;
+    background:rgba(216,181,106,.06);
 
-    border-radius:30px;
+    color:var(--gold2);
 
-    background:
-        rgba(201,164,92,.12);
+    border-radius:100px;
 
-    color:
-        #8b6a2e;
-
-    font-size:14px;
-
+    font-size:12px;
     font-weight:700;
+
+    margin-bottom:24px;
 }
 
-.hero-badge::before{
-
-    content:"";
-
-    width:8px;
-    height:8px;
-
+.eyebrow i{
+    width:7px;
+    height:7px;
     border-radius:50%;
-
     background:var(--gold);
+    box-shadow:0 0 14px var(--gold);
 }
 
 .hero h1{
+    font-size:clamp(55px,7vw,105px);
 
-    font-size:
-        clamp(48px,7vw,82px);
+    line-height:1.05;
 
-    line-height:
-        1.1;
+    letter-spacing:-4px;
 
-    letter-spacing:
-        -3px;
-
-    color:
-        var(--navy);
-
-    margin-bottom:
-        18px;
+    margin-bottom:20px;
 }
 
-.hero h1 span{
-
-    color:
-        var(--gold);
+.hero h1 .gold{
+    color:var(--gold);
 }
 
-.hero h2{
+.hero-title{
+    font-size:clamp(20px,3vw,29px);
 
-    font-size:
-        clamp(21px,3vw,30px);
+    color:#b9c4d2;
 
-    color:
-        #43536a;
+    font-weight:600;
 
-    margin-bottom:
-        20px;
-
-    font-weight:
-        600;
+    margin-bottom:22px;
 }
 
 .hero-description{
+    max-width:650px;
 
-    max-width:
-        650px;
+    color:var(--muted);
 
-    font-size:
-        18px;
+    font-size:16px;
 
-    color:
-        var(--muted);
-
-    margin-bottom:
-        35px;
+    margin-bottom:34px;
 }
 
-
-/* الأزرار */
-
 .hero-buttons{
-
     display:flex;
-
-    gap:15px;
-
+    gap:12px;
     flex-wrap:wrap;
 }
 
 .btn{
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
+    gap:10px;
 
-    padding:
-        14px 27px;
+    padding:13px 23px;
 
-    border-radius:
-        13px;
+    border-radius:13px;
 
-    font-weight:
-        800;
-
-    transition:
-        .3s;
-
-    cursor:pointer;
-}
-
-.btn-primary{
-
-    background:
-        var(--navy);
-
-    color:white;
-
-    box-shadow:
-        0 12px 30px rgba(11,31,58,.18);
-}
-
-.btn-primary:hover{
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 18px 35px rgba(11,31,58,.25);
-}
-
-.btn-secondary{
-
-    border:
-        1px solid #d6dce5;
-
-    background:
-        white;
-
-    color:
-        var(--navy);
-}
-
-.btn-secondary:hover{
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        var(--gold);
-
-    color:
-        #8b6a2e;
-}
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-.profile-area{
-
-    display:flex;
-
-    justify-content:center;
-
-    position:relative;
-
-    animation:
-        fadeIn 1.2s ease;
-}
-
-.profile-frame{
-
-    width:
-        380px;
-
-    height:
-        470px;
-
-    position:relative;
-
-    padding:
-        10px;
-
-    border-radius:
-        35px;
-
-    background:
-        linear-gradient(
-            145deg,
-            var(--gold-light),
-            var(--gold),
-            #8e6b2f
-        );
-
-    box-shadow:
-        0 35px 80px rgba(11,31,58,.20);
-
-    transform:
-        rotate(2deg);
-}
-
-.profile-frame::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:
-        14px;
-
-    border:
-        1px solid rgba(255,255,255,.6);
-
-    border-radius:
-        27px;
-
-    pointer-events:none;
-
-    z-index:2;
-}
-
-.profile-frame img{
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    object-fit:
-        cover;
-
-    border-radius:
-        27px;
-
-    display:block;
-}
-
-
-/* بطاقة صغيرة */
-
-.profile-label{
-
-    position:absolute;
-
-    bottom:-25px;
-
-    left:-35px;
-
-    background:
-        white;
-
-    padding:
-        16px 22px;
-
-    border-radius:
-        16px;
-
-    box-shadow:
-        var(--shadow);
-
-    z-index:5;
-
-    transform:
-        rotate(-2deg);
-}
-
-.profile-label strong{
-
-    display:block;
-
-    color:
-        var(--navy);
-
-    font-size:
-        17px;
-}
-
-.profile-label small{
-
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
-}
-
-
-/* =====================================================
-   GENERAL SECTIONS
-===================================================== */
-
-section{
-
-    padding:
-        110px 25px;
-}
-
-.container{
-
-    max-width:
-        1150px;
-
-    margin:auto;
-}
-
-.section-heading{
-
-    text-align:center;
-
-    max-width:
-        700px;
-
-    margin:
-        0 auto 60px;
-}
-
-.section-heading .small{
-
-    color:
-        var(--gold);
-
-    font-size:
-        14px;
-
-    font-weight:
-        800;
-
-    margin-bottom:
-        10px;
-
-    text-transform:
-        uppercase;
-}
-
-.section-heading h2{
-
-    font-size:
-        clamp(32px,5vw,48px);
-
-    color:
-        var(--navy);
-
-    margin-bottom:
-        12px;
-
-    letter-spacing:
-        -1px;
-}
-
-.section-heading p{
-
-    color:
-        var(--muted);
-
-    font-size:
-        17px;
-}
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about{
-
-    background:
-        white;
-}
-
-.about-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        .8fr 1.2fr;
-
-    gap:
-        60px;
-
-    align-items:center;
-}
-
-.about-card{
-
-    background:
-        linear-gradient(
-            145deg,
-            var(--navy),
-            var(--navy2)
-        );
-
-    color:white;
-
-    border-radius:
-        28px;
-
-    padding:
-        40px;
-
-    box-shadow:
-        var(--shadow);
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.about-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:200px;
-    height:200px;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    left:-80px;
-    bottom:-80px;
-}
-
-.about-card h3{
-
-    font-size:
-        27px;
-
-    margin-bottom:
-        15px;
-}
-
-.about-card p{
-
-    color:
-        #cbd5e1;
-
-    font-size:
-        16px;
-}
-
-.about-content h3{
-
-    font-size:
-        28px;
-
-    color:
-        var(--navy);
-
-    margin-bottom:
-        18px;
-}
-
-.about-content p{
-
-    color:
-        var(--muted);
-
-    margin-bottom:
-        18px;
-
-    font-size:
-        17px;
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-.stats{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:
-        18px;
-
-    margin-top:
-        50px;
-}
-
-.stat{
-
-    text-align:center;
-
-    padding:
-        25px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        18px;
-
-    background:
-        white;
-}
-
-.stat strong{
-
-    display:block;
-
-    font-size:
-        32px;
-
-    color:
-        var(--navy);
-
-    margin-bottom:
-        4px;
-}
-
-.stat span{
-
-    font-size:
-        13px;
-
-    color:
-        var(--muted);
-}
-
-
-/* =====================================================
-   SERVICES / SKILLS
-===================================================== */
-
-.skills{
-
-    background:
-        #f5f7fa;
-}
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:
-        22px;
-}
-
-.card{
-
-    padding:
-        32px;
-
-    background:
-        white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        22px;
-
-    transition:
-        .35s;
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-}
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    right:0;
-    top:0;
-
-    width:0;
-    height:4px;
-
-    background:
-        var(--gold);
+    font-size:14px;
+    font-weight:800;
 
     transition:.35s;
 }
 
-.card:hover{
+.btn-primary{
+    color:#071018;
 
-    transform:
-        translateY(-8px);
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold2),
+            var(--gold)
+        );
 
     box-shadow:
-        var(--shadow);
+        0 12px 35px rgba(216,181,106,.12);
 }
 
-.card:hover::before{
-
-    width:100%;
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 18px 45px rgba(216,181,106,.2);
 }
 
-.icon{
+.btn-outline{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.025);
+    color:#d9e0e9;
+}
 
-    width:
-        58px;
+.btn-outline:hover{
+    border-color:rgba(216,181,106,.4);
+    color:var(--gold2);
+    transform:translateY(-4px);
+}
 
-    height:
-        58px;
 
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.visual{
+    position:relative;
     display:flex;
-
-    align-items:center;
-
     justify-content:center;
-
-    border-radius:
-        16px;
-
-    background:
-        rgba(201,164,92,.12);
-
-    font-size:
-        27px;
-
-    margin-bottom:
-        20px;
 }
 
-.card h3{
+.photo-container{
+    width:410px;
+    height:510px;
 
-    font-size:
-        21px;
+    position:relative;
 
-    color:
-        var(--navy);
+    border-radius:32px;
 
-    margin-bottom:
-        10px;
-}
-
-.card p{
-
-    color:
-        var(--muted);
-
-    font-size:
-        15px;
-}
-
-
-/* =====================================================
-   EDUCATION
-===================================================== */
-
-.education{
-
-    background:
-        white;
-}
-
-.education-box{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:
-        22px;
-}
-
-.education-item{
-
-    padding:
-        35px;
-
-    border-radius:
-        22px;
+    padding:8px;
 
     background:
         linear-gradient(
             145deg,
-            #f8fafc,
-            #ffffff
+            rgba(241,217,154,.8),
+            rgba(216,181,106,.1),
+            rgba(255,255,255,.05)
         );
 
-    border:
-        1px solid var(--border);
+    transform:rotate(2deg);
 
-    transition:.3s;
+    box-shadow:
+        0 45px 100px rgba(0,0,0,.45);
 }
 
-.education-item:hover{
+.photo-container::before{
+    content:"";
 
-    transform:
-        translateY(-6px);
+    position:absolute;
+    inset:20px;
 
-    border-color:
-        var(--gold-light);
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:24px;
+
+    z-index:2;
+
+    pointer-events:none;
 }
 
-.education-number{
+.photo-container img{
+    width:100%;
+    height:100%;
 
-    font-size:
-        14px;
+    object-fit:cover;
 
-    color:
-        var(--gold);
+    border-radius:26px;
 
-    font-weight:
-        900;
-
-    margin-bottom:
-        15px;
+    display:block;
 }
 
-.education-item h3{
+.photo-number{
+    position:absolute;
 
-    color:
-        var(--navy);
+    top:-35px;
+    left:-35px;
 
-    margin-bottom:
-        10px;
+    width:85px;
+    height:85px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    color:#071018;
+
+    font-size:24px;
+    font-weight:900;
+
+    box-shadow:
+        0 15px 40px rgba(216,181,106,.2);
+
+    z-index:5;
 }
 
-.education-item p{
+.photo-caption{
+    position:absolute;
 
-    color:
-        var(--muted);
+    bottom:-30px;
+    right:-45px;
 
-    font-size:
-        15px;
+    background:rgba(15,23,35,.92);
+
+    border:1px solid var(--line);
+
+    border-radius:17px;
+
+    padding:14px 20px;
+
+    backdrop-filter:blur(15px);
+
+    z-index:5;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3);
+}
+
+.photo-caption strong{
+    display:block;
+    color:white;
+    font-size:15px;
+}
+
+.photo-caption span{
+    color:var(--gold);
+    font-size:11px;
 }
 
 
-/* =====================================================
-   QUOTE
-===================================================== */
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
 
-.quote{
+.scroll{
+    position:absolute;
+    bottom:35px;
+    right:50%;
+
+    transform:translateX(50%);
+
+    color:#667386;
+
+    font-size:10px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+}
+
+.scroll-line{
+    width:1px;
+    height:35px;
+    background:linear-gradient(var(--gold),transparent);
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section{
+    padding:120px 0;
+}
+
+.section-head{
+    max-width:700px;
+    margin-bottom:60px;
+}
+
+.section-head.center{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.section-label{
+    color:var(--gold);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+.section-head h2{
+    font-size:clamp(35px,5vw,57px);
+    line-height:1.2;
+    letter-spacing:-2px;
+    margin-bottom:15px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:15px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:70px;
+    align-items:start;
+}
+
+.about-quote{
+    padding:35px;
+
+    border-radius:25px;
 
     background:
-        var(--navy);
+        linear-gradient(
+            145deg,
+            #111c2b,
+            #0b121c
+        );
 
-    text-align:center;
-
-    color:white;
+    border:1px solid var(--line);
 
     position:relative;
-
     overflow:hidden;
 }
 
-.quote::before{
-
+.about-quote::before{
     content:"“";
 
     position:absolute;
 
-    font-size:
-        300px;
+    top:-60px;
+    right:15px;
 
-    color:
-        rgba(255,255,255,.035);
+    font-family:Georgia;
 
-    top:-120px;
+    font-size:180px;
 
-    right:5%;
+    color:rgba(216,181,106,.08);
 }
 
-.quote-content{
+.about-quote h3{
+    position:relative;
+    font-size:25px;
+    margin-bottom:15px;
+}
 
-    max-width:
-        850px;
+.about-quote p{
+    position:relative;
+    color:#8996a8;
+    font-size:14px;
+}
 
-    margin:auto;
+.about-text p{
+    color:#929dad;
+    font-size:16px;
+    margin-bottom:20px;
+}
+
+.about-list{
+    list-style:none;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:28px;
+}
+
+.about-list li{
+    color:#cbd3de;
+    font-size:13px;
+    padding:12px 15px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:rgba(255,255,255,.018);
+}
+
+.about-list li::before{
+    content:"✓";
+    color:var(--gold);
+    margin-left:8px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    padding:30px 20px;
+
+    border:1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.018);
+
+    border-radius:19px;
+
+    text-align:center;
+
+    transition:.35s;
+}
+
+.stat:hover{
+    transform:translateY(-7px);
+    border-color:rgba(216,181,106,.3);
+}
+
+.stat strong{
+    display:block;
+
+    font-size:37px;
+
+    color:var(--gold2);
+
+    line-height:1.2;
+
+    margin-bottom:5px;
+}
+
+.stat span{
+    color:#778396;
+    font-size:11px;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.dark-section{
+    background:#090f18;
+
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    min-height:270px;
+
+    padding:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.01)
+        );
+
+    border:1px solid var(--line);
+
+    border-radius:22px;
 
     position:relative;
 
-    z-index:2;
+    overflow:hidden;
+
+    transition:.4s;
 }
 
-.quote blockquote{
+.service:hover{
+    transform:translateY(-9px);
 
-    font-size:
-        clamp(25px,4vw,38px);
-
-    line-height:
-        1.7;
-
-    font-weight:
-        700;
-
-    margin-bottom:
-        20px;
-}
-
-.quote span{
-
-    color:
-        var(--gold-light);
-
-    font-size:
-        14px;
-}
-
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact{
-
-    background:
-        #f5f7fa;
-}
-
-.contact-box{
-
-    max-width:
-        900px;
-
-    margin:auto;
-
-    padding:
-        55px;
-
-    background:
-        white;
-
-    border-radius:
-        28px;
+    border-color:
+        rgba(216,181,106,.35);
 
     box-shadow:
-        var(--shadow);
-
-    text-align:center;
+        0 30px 70px rgba(0,0,0,.25);
 }
 
-.contact-box h3{
+.service-number{
+    position:absolute;
 
-    color:
-        var(--navy);
+    left:25px;
+    top:20px;
 
-    font-size:
-        30px;
+    color:rgba(255,255,255,.08);
 
-    margin-bottom:
-        10px;
+    font-size:45px;
+    font-weight:900;
 }
 
-.contact-box p{
-
-    color:
-        var(--muted);
-
-    margin-bottom:
-        30px;
-}
-
-.socials{
+.service-icon{
+    width:55px;
+    height:55px;
 
     display:flex;
-
+    align-items:center;
     justify-content:center;
 
-    flex-wrap:wrap;
+    border-radius:15px;
 
-    gap:12px;
-}
-
-.social{
-
-    padding:
-        11px 20px;
+    background:
+        rgba(216,181,106,.08);
 
     border:
-        1px solid var(--border);
+        1px solid rgba(216,181,106,.12);
 
-    border-radius:
-        12px;
+    font-size:24px;
 
-    color:
-        var(--navy);
-
-    font-weight:
-        700;
-
-    transition:.3s;
+    margin-bottom:25px;
 }
 
-.social:hover{
+.service h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
 
-    background:
-        var(--navy);
-
-    color:white;
-
-    transform:
-        translateY(-3px);
+.service p{
+    color:#7d899a;
+    font-size:13px;
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* =========================================================
+   EDUCATION / TIMELINE
+========================================================= */
 
-footer{
+.timeline{
+    position:relative;
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+
+    position:absolute;
+
+    right:15px;
+    top:0;
+    bottom:0;
+
+    width:1px;
 
     background:
-        #07172b;
+        linear-gradient(
+            var(--gold),
+            rgba(216,181,106,.05)
+        );
+}
 
-    color:
-        #aeb9c8;
+.timeline-item{
+    position:relative;
 
-    padding:
-        35px 25px;
+    padding-right:55px;
+
+    margin-bottom:45px;
+}
+
+.timeline-dot{
+    position:absolute;
+
+    right:8px;
+    top:8px;
+
+    width:15px;
+    height:15px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    box-shadow:
+        0 0 0 7px rgba(216,181,106,.08);
+}
+
+.timeline-date{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+.timeline-item h3{
+    font-size:20px;
+    margin-bottom:7px;
+}
+
+.timeline-item p{
+    color:#7e8a9c;
+    font-size:13px;
+}
+
+
+/* =========================================================
+   FEATURED
+========================================================= */
+
+.featured{
+    display:grid;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
+    gap:20px;
+}
+
+.featured-main,
+.featured-small{
+    border:1px solid var(--line);
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101a28,
+            #0b121c
+        );
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.featured-main{
+    min-height:420px;
+
+    padding:45px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+}
+
+.featured-main::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(216,181,106,.16),
+            transparent 35%
+        );
+}
+
+.featured-main > *{
+    position:relative;
+}
+
+.featured-tag{
+    display:inline-block;
+
+    color:var(--gold);
+
+    font-size:11px;
+
+    margin-bottom:12px;
+}
+
+.featured-main h3{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.featured-main p{
+    color:#7f8b9d;
+    max-width:650px;
+    font-size:13px;
+}
+
+.featured-side{
+    display:grid;
+    gap:20px;
+}
+
+.featured-small{
+    padding:30px;
+}
+
+.featured-small h3{
+    font-size:19px;
+    margin-bottom:7px;
+}
+
+.featured-small p{
+    color:#778497;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    padding:90px 0;
+}
+
+.cta-box{
+    padding:75px 35px;
 
     text-align:center;
+
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216,181,106,.13),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            135deg,
+            #101a28,
+            #0b121c
+        );
+
+    border:1px solid var(--line);
 }
 
-footer .footer-name{
-
-    color:white;
-
-    font-size:
-        19px;
-
-    font-weight:
-        800;
-
-    margin-bottom:
-        5px;
+.cta-box h2{
+    font-size:clamp(32px,5vw,55px);
+    margin-bottom:13px;
 }
 
-footer span{
-
-    color:
-        var(--gold-light);
+.cta-box p{
+    color:#7f8c9f;
+    max-width:600px;
+    margin:0 auto 30px;
 }
 
 
-/* =====================================================
-   ANIMATIONS
-===================================================== */
+/* =========================================================
+   FOOTER
+========================================================= */
 
-@keyframes fadeUp{
+footer{
+    border-top:1px solid var(--line);
+    padding:35px 0;
+}
 
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.footer-brand{
+    font-size:18px;
+    font-weight:900;
+}
+
+.footer-brand span{
+    color:var(--gold);
+}
+
+.footer-copy{
+    color:#596678;
+    font-size:11px;
+}
+
+.footer-links{
+    display:flex;
+    gap:18px;
+}
+
+.footer-links a{
+    color:#788496;
+    font-size:11px;
+}
+
+.footer-links a:hover{
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) rotate(2deg);
+    }
+
+    50%{
+        transform:translateY(-12px) rotate(2deg);
+    }
+}
+
+.photo-container{
+    animation:float 6s ease-in-out infinite;
+}
+
+@keyframes appear{
     from{
-
         opacity:0;
-
-        transform:
-            translateY(30px);
+        transform:translateY(30px);
     }
 
     to{
-
         opacity:1;
-
-        transform:
-            translateY(0);
+        transform:translateY(0);
     }
 }
 
-@keyframes fadeIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            scale(.94);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            scale(1);
-    }
+.hero-content{
+    animation:appear 1s ease both;
 }
 
 
-/* =====================================================
+/* =========================================================
    RESPONSIVE
-===================================================== */
+========================================================= */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
-    .nav-links{
-
-        gap:15px;
-    }
-
-    .nav-button{
-
-        display:none;
-    }
-
-    .hero-container{
-
-        grid-template-columns:
-            1fr;
-
+    .hero-wrap{
+        grid-template-columns:1fr;
         text-align:center;
     }
 
     .hero-description{
-
         margin-left:auto;
         margin-right:auto;
     }
 
     .hero-buttons{
-
         justify-content:center;
     }
 
-    .profile-area{
-
+    .visual{
         order:-1;
     }
 
-    .profile-frame{
-
-        width:300px;
-        height:370px;
+    .photo-container{
+        width:330px;
+        height:410px;
     }
 
     .about-grid{
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
-    .stats{
-
-        grid-template-columns:
-            repeat(2,1fr);
+    .services{
+        grid-template-columns:1fr 1fr;
     }
 
-    .cards,
-    .education-box{
+    .featured{
+        grid-template-columns:1fr;
+    }
 
-        grid-template-columns:
-            1fr;
+    .featured-side{
+        grid-template-columns:1fr 1fr;
     }
 }
 
 
-@media(max-width:600px){
+@media(max-width:700px){
+
+    .container{
+        width:min(100% - 30px,var(--max));
+    }
 
     header{
-
-        position:relative;
+        top:8px;
     }
 
-    .navbar{
-
+    .nav{
+        width:calc(100% - 16px);
         height:auto;
-
-        padding:
-            18px 15px;
-
-        flex-direction:
-            column;
-
-        gap:14px;
+        min-height:62px;
     }
 
-    .nav-links{
-
+    .menu{
         gap:12px;
-
-        justify-content:center;
-
-        flex-wrap:wrap;
     }
 
-    .nav-links a{
+    .menu li:nth-child(2),
+    .menu li:nth-child(3){
+        display:none;
+    }
 
-        font-size:13px;
+    .menu a{
+        font-size:11px;
     }
 
     .hero{
-
-        padding:
-            70px 18px;
+        padding-top:120px;
     }
 
     .hero h1{
-
-        font-size:
-            50px;
-
-        letter-spacing:
-            -2px;
+        font-size:54px;
+        letter-spacing:-2px;
     }
 
-    .profile-frame{
+    .photo-container{
+        width:270px;
+        height:340px;
+    }
 
-        width:260px;
-        height:320px;
+    .photo-caption{
+        right:-10px;
+    }
+
+    .photo-number{
+        left:-15px;
     }
 
     section{
-
-        padding:
-            75px 18px;
+        padding:80px 0;
     }
 
     .stats{
-
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 
-    .about-card,
-    .contact-box{
-
-        padding:
-            30px 22px;
+    .services{
+        grid-template-columns:1fr;
     }
 
-    .profile-label{
+    .about-list{
+        grid-template-columns:1fr;
+    }
 
-        left:0;
-        bottom:-25px;
+    .featured-side{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .scroll{
+        display:none;
     }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
+<div class="background-grid"></div>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+
 <!-- =====================================================
-     NAVIGATION
+     HEADER
 ===================================================== -->
 
 <header>
 
-<nav class="navbar">
+<nav class="nav">
 
     <a href="#home" class="logo">
         محمد <span>الفقي</span>
     </a>
 
-    <ul class="nav-links">
+    <ul class="menu">
 
         <li>
             <a href="#home">الرئيسية</a>
         </li>
 
         <li>
-            <a href="#about">نبذة عني</a>
+            <a href="#about">من أنا</a>
         </li>
 
         <li>
-            <a href="#skills">مجالاتي</a>
+            <a href="#services">مجالاتي</a>
         </li>
 
         <li>
-            <a href="#education">المحتوى</a>
+            <a href="#content">المحتوى</a>
         </li>
 
         <li>
-            <a href="#contact" class="nav-button">
+            <a href="#contact" class="contact-link">
                 تواصل معي
             </a>
         </li>
@@ -1482,41 +1234,51 @@ footer span{
      HERO
 ===================================================== -->
 
-<section class="hero" id="home">
+<main id="home">
 
-<div class="hero-container">
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-wrap">
 
 
     <div class="hero-content">
 
-        <div class="hero-badge">
-            مرحبًا بكم في موقعي الشخصي
+        <div class="eyebrow">
+            <i></i>
+            الموقع الشخصي لمحمد الفقي
         </div>
 
         <h1>
-            محمد <span>الفقي</span>
+            محمد
+            <span class="gold">
+                الفقي
+            </span>
         </h1>
 
-        <h2>
-            التعليم • الإبداع • صناعة الأثر
-        </h2>
+        <div class="hero-title">
+            التعليم • الإبداع • الابتكار • صناعة الأثر
+        </div>
 
         <p class="hero-description">
 
-            مساحة شخصية أشارك من خلالها خبراتي،
-            وأعمالي، ومحتواي التعليمي، وأفكاري،
-            وأسعى فيها إلى تحويل المعرفة إلى أثر
-            حقيقي ومستدام.
+            مرحبًا بكم في مساحتي الرقمية.
+            هنا أشارك رحلتي في التعليم،
+            وأعمالي، وأفكاري، ومشروعاتي،
+            وكل ما أؤمن بأنه قادر على صناعة
+            فرق حقيقي في حياة المتعلم.
 
         </p>
 
         <div class="hero-buttons">
 
             <a href="#about" class="btn btn-primary">
-                اكتشف المزيد
+                اكتشف قصتي
+                <span>←</span>
             </a>
 
-            <a href="#education" class="btn btn-secondary">
+            <a href="#content" class="btn btn-outline">
                 استكشف المحتوى
             </a>
 
@@ -1525,24 +1287,28 @@ footer span{
     </div>
 
 
-    <div class="profile-area">
+    <div class="visual">
 
-        <div class="profile-frame">
+        <div class="photo-container">
 
             <img
                 src="profile.jpg"
                 alt="محمد الفقي"
             >
 
-            <div class="profile-label">
+            <div class="photo-number">
+                MF
+            </div>
+
+            <div class="photo-caption">
 
                 <strong>
                     محمد الفقي
                 </strong>
 
-                <small>
-                    التعليم والإبداع
-                </small>
+                <span>
+                    Education • Creativity • Impact
+                </span>
 
             </div>
 
@@ -1551,6 +1317,14 @@ footer span{
     </div>
 
 
+</div>
+
+</div>
+
+
+<div class="scroll">
+    SCROLL
+    <div class="scroll-line"></div>
 </div>
 
 </section>
@@ -1560,271 +1334,116 @@ footer span{
      ABOUT
 ===================================================== -->
 
-<section class="about" id="about">
+<section id="about">
 
 <div class="container">
 
-    <div class="section-heading">
+<div class="section-head">
 
-        <div class="small">
-            من أنا؟
-        </div>
-
-        <h2>
-            نبذة عني
-        </h2>
-
-        <p>
-            المعرفة بداية، والأثر هو الغاية.
-        </p>
-
+    <div class="section-label">
+        01 — ABOUT
     </div>
 
+    <h2>
+        المعرفة عندما تتحول إلى أثر.
+    </h2>
 
-    <div class="about-grid">
-
-
-        <div class="about-card">
-
-            <h3>
-                رسالتي
-            </h3>
-
-            <p>
-
-                الإسهام في بناء تجربة تعليمية
-                أكثر إبداعًا وتأثيرًا، تجمع بين
-                المعرفة والتقنية والشغف بالتعلم.
-
-            </p>
-
-        </div>
-
-
-        <div class="about-content">
-
-            <h3>
-                أؤمن بأن التعليم يصنع الفرق
-            </h3>
-
-            <p>
-
-                أسعى إلى تقديم المعرفة بصورة واضحة
-                ومبتكرة، وتصميم محتوى يساعد المتعلم
-                على الفهم والتطبيق واكتشاف قدراته.
-
-            </p>
-
-            <p>
-
-                كما أهتم بتطوير الأفكار والمشروعات
-                التي تجمع بين التعليم والإبداع
-                والتقنية، بهدف صناعة تجربة ذات قيمة.
-
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="stats">
-
-        <div class="stat">
-
-            <strong>∞</strong>
-
-            <span>
-                شغف بالتعلم
-            </span>
-
-        </div>
-
-        <div class="stat">
-
-            <strong>100%</strong>
-
-            <span>
-                اهتمام بالجودة
-            </span>
-
-        </div>
-
-        <div class="stat">
-
-            <strong>24/7</strong>
-
-            <span>
-                تطوير مستمر
-            </span>
-
-        </div>
-
-        <div class="stat">
-
-            <strong>+</strong>
-
-            <span>
-                أفكار ومشروعات
-            </span>
-
-        </div>
-
-    </div>
+    <p>
+        أؤمن أن أفضل الأفكار هي التي تترك أثرًا
+        حقيقيًا في حياة الآخرين.
+    </p>
 
 </div>
 
-</section>
+
+<div class="about-grid">
 
 
-<!-- =====================================================
-     SKILLS
-===================================================== -->
+    <div class="about-quote">
 
-<section class="skills" id="skills">
-
-<div class="container">
-
-    <div class="section-heading">
-
-        <div class="small">
-            مجالات التميز
-        </div>
-
-        <h2>
-            ماذا أقدم؟
-        </h2>
+        <h3>
+            فلسفتي
+        </h3>
 
         <p>
-            مجالات أسعى من خلالها إلى تقديم قيمة حقيقية.
+
+            التعليم ليس مجرد نقل للمعلومة،
+            بل رحلة لاكتشاف الإنسان لقدراته
+            وصناعة مستقبله.
+
         </p>
 
     </div>
 
 
-    <div class="cards">
+    <div class="about-text">
+
+        <p>
+
+            أسعى إلى بناء تجربة تعليمية تجمع
+            بين وضوح المعرفة وجمال تقديمها،
+            مع الاستفادة من التقنيات والأفكار
+            الحديثة في تطوير المحتوى.
+
+        </p>
+
+        <p>
+
+            كما أهتم بالمشروعات الإبداعية،
+            والبحث، والابتكار، وكل فكرة يمكن
+            أن تتحول إلى قيمة يستفيد منها الآخرون.
+
+        </p>
 
 
-        <div class="card">
+        <ul class="about-list">
 
-            <div class="icon">
-                🎓
-            </div>
+            <li>
+                شغف بالتعليم
+            </li>
 
-            <h3>
-                التعليم
-            </h3>
-
-            <p>
-
-                تقديم المحتوى التعليمي بأساليب
-                واضحة ومبتكرة تراعي احتياجات المتعلم.
-
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                💡
-            </div>
-
-            <h3>
-                الابتكار
-            </h3>
-
-            <p>
-
-                تحويل الأفكار إلى تجارب ومشروعات
-                تجمع بين الإبداع والتقنية.
-
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                ✨
-            </div>
-
-            <h3>
+            <li>
                 صناعة المحتوى
-            </h3>
+            </li>
 
-            <p>
+            <li>
+                الابتكار والإبداع
+            </li>
 
-                تصميم محتوى هادف ومنظم يساعد
-                على الوصول إلى المعلومة بسهولة.
-
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                📚
-            </div>
-
-            <h3>
-                المراجعات التعليمية
-            </h3>
-
-            <p>
-
-                إعداد مواد ومراجعات تساعد الطلاب
-                على تثبيت المفاهيم والمهارات.
-
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                🚀
-            </div>
-
-            <h3>
+            <li>
                 التطوير المستمر
-            </h3>
+            </li>
 
-            <p>
-
-                البحث المستمر عن طرق جديدة
-                للتعلم والتطوير وتحسين الأداء.
-
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                🔍
-            </div>
-
-            <h3>
-                البحث والاكتشاف
-            </h3>
-
-            <p>
-
-                الاهتمام بالأفكار الجديدة وتشجيع
-                الفضول والبحث واكتشاف المعرفة.
-
-            </p>
-
-        </div>
+        </ul>
 
     </div>
+
+</div>
+
+
+<div class="stats">
+
+    <div class="stat">
+        <strong>∞</strong>
+        <span>شغف مستمر بالتعلم</span>
+    </div>
+
+    <div class="stat">
+        <strong>100%</strong>
+        <span>اهتمام بالجودة</span>
+    </div>
+
+    <div class="stat">
+        <strong>+</strong>
+        <span>أفكار ومشروعات</span>
+    </div>
+
+    <div class="stat">
+        <strong>24/7</strong>
+        <span>تطوير مستمر</span>
+    </div>
+
+</div>
 
 </div>
 
@@ -1832,94 +1451,363 @@ footer span{
 
 
 <!-- =====================================================
-     EDUCATION
+     SERVICES
 ===================================================== -->
 
-<section class="education" id="education">
+<section class="dark-section" id="services">
 
 <div class="container">
 
-    <div class="section-heading">
+<div class="section-head center">
 
-        <div class="small">
-            المعرفة
+    <div class="section-label">
+        02 — EXPERTISE
+    </div>
+
+    <h2>
+        مجالاتي
+    </h2>
+
+    <p>
+        مساحات أعمل من خلالها على تقديم قيمة
+        تعليمية وإبداعية حقيقية.
+    </p>
+
+</div>
+
+
+<div class="services">
+
+
+    <div class="service">
+
+        <div class="service-number">
+            01
         </div>
 
-        <h2>
-            المحتوى التعليمي
-        </h2>
+        <div class="service-icon">
+            🎓
+        </div>
+
+        <h3>
+            التعليم
+        </h3>
 
         <p>
-            قريبًا ستجد هنا مجموعة متكاملة من المواد التعليمية.
+            تصميم وتقديم المحتوى التعليمي
+            بأساليب واضحة ومبتكرة تساعد
+            على الفهم والتطبيق.
         </p>
 
     </div>
 
 
-    <div class="education-box">
+    <div class="service">
+
+        <div class="service-number">
+            02
+        </div>
+
+        <div class="service-icon">
+            💡
+        </div>
+
+        <h3>
+            الابتكار
+        </h3>
+
+        <p>
+            تحويل الأفكار الجديدة إلى
+            تجارب ومشروعات ذات قيمة
+            وأثر ملموس.
+        </p>
+
+    </div>
 
 
-        <div class="education-item">
+    <div class="service">
 
-            <div class="education-number">
-                01
-            </div>
+        <div class="service-number">
+            03
+        </div>
+
+        <div class="service-icon">
+            ✦
+        </div>
+
+        <h3>
+            صناعة المحتوى
+        </h3>
+
+        <p>
+            إنتاج محتوى منظم وجذاب
+            يجمع بين المعلومة والتصميم
+            وسهولة الوصول.
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-number">
+            04
+        </div>
+
+        <div class="service-icon">
+            📚
+        </div>
+
+        <h3>
+            المواد التعليمية
+        </h3>
+
+        <p>
+            إعداد المراجعات وأوراق العمل
+            والمواد التي تدعم رحلة الطالب.
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-number">
+            05
+        </div>
+
+        <div class="service-icon">
+            🚀
+        </div>
+
+        <h3>
+            التطوير
+        </h3>
+
+        <p>
+            البحث الدائم عن طرق وأدوات
+            جديدة لتحسين التجربة التعليمية.
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-number">
+            06
+        </div>
+
+        <div class="service-icon">
+            🔎
+        </div>
+
+        <h3>
+            البحث والاكتشاف
+        </h3>
+
+        <p>
+            استكشاف الأفكار الجديدة وتشجيع
+            الفضول والبحث وصناعة المعرفة.
+        </p>
+
+    </div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<section id="content">
+
+<div class="container">
+
+<div class="section-head center">
+
+    <div class="section-label">
+        03 — CONTENT
+    </div>
+
+    <h2>
+        المحتوى والمشروعات
+    </h2>
+
+    <p>
+        مساحة ستضم أعمالي وموادي التعليمية
+        ومشروعاتي القادمة.
+    </p>
+
+</div>
+
+
+<div class="featured">
+
+
+    <div class="featured-main">
+
+        <span class="featured-tag">
+            FEATURED PROJECT
+        </span>
+
+        <h3>
+            المحتوى التعليمي
+        </h3>
+
+        <p>
+
+            منصة منظمة للمراجعات والدروس
+            وأوراق العمل والمواد التعليمية،
+            لتكون المعرفة أقرب وأسهل للطالب.
+
+        </p>
+
+    </div>
+
+
+    <div class="featured-side">
+
+
+        <div class="featured-small">
+
+            <span class="featured-tag">
+                EDUCATION
+            </span>
 
             <h3>
-                الدروس التعليمية
+                الدروس
             </h3>
 
             <p>
-
-                دروس وشروحات منظمة بطريقة سهلة
-                وواضحة تساعد على الفهم.
-
+                شروحات ودروس تعليمية منظمة.
             </p>
 
         </div>
 
 
-        <div class="education-item">
+        <div class="featured-small">
 
-            <div class="education-number">
-                02
-            </div>
+            <span class="featured-tag">
+                RESOURCES
+            </span>
 
             <h3>
-                أوراق العمل
+                الملفات
             </h3>
 
             <p>
-
-                تدريبات وأنشطة تعليمية مصممة
-                لتثبيت المهارات والمعارف.
-
-            </p>
-
-        </div>
-
-
-        <div class="education-item">
-
-            <div class="education-number">
-                03
-            </div>
-
-            <h3>
-                المراجعات
-            </h3>
-
-            <p>
-
-                ملفات مراجعة تساعد الطالب على
-                الاستعداد والتميز.
-
+                مذكرات وأوراق عمل ومراجعات.
             </p>
 
         </div>
 
 
     </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
+
+<section class="dark-section">
+
+<div class="container">
+
+<div class="section-head center">
+
+    <div class="section-label">
+        04 — JOURNEY
+    </div>
+
+    <h2>
+        رحلة مستمرة
+    </h2>
+
+    <p>
+        التعلم والتطوير رحلة لا تتوقف.
+    </p>
+
+</div>
+
+
+<div class="timeline">
+
+
+    <div class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-date">
+            التعليم
+        </div>
+
+        <h3>
+            بناء المحتوى التعليمي
+        </h3>
+
+        <p>
+            تطوير مواد ومحتويات تساعد
+            المتعلم على الوصول إلى الفهم
+            بصورة أكثر وضوحًا.
+        </p>
+
+    </div>
+
+
+    <div class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-date">
+            الإبداع
+        </div>
+
+        <h3>
+            توظيف الأفكار الحديثة
+        </h3>
+
+        <p>
+            البحث عن أساليب جديدة تجمع
+            بين الإبداع والتعليم والتقنية.
+        </p>
+
+    </div>
+
+
+    <div class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-date">
+            المستقبل
+        </div>
+
+        <h3>
+            مشروعات أكبر وأثر أوسع
+        </h3>
+
+        <p>
+            تطوير المشروعات الرقمية وتحويل
+            الأفكار إلى تجارب يستفيد منها
+            عدد أكبر من المتعلمين.
+        </p>
+
+    </div>
+
+
+</div>
 
 </div>
 
@@ -1930,21 +1818,32 @@ footer span{
      QUOTE
 ===================================================== -->
 
-<section class="quote">
+<section>
 
-<div class="quote-content">
+<div class="container">
 
-    <blockquote>
+<div class="cta-box">
 
-        "التعليم ليس مجرد نقل المعرفة،
-        بل صناعة إنسان قادر على التفكير
-        والإبداع وصناعة المستقبل."
+    <div class="section-label">
+        MY VISION
+    </div>
 
-    </blockquote>
+    <h2>
+        فكرة صغيرة قد تصنع فرقًا كبيرًا.
+    </h2>
 
-    <span>
-        محمد الفقي
-    </span>
+    <p>
+        أطمح إلى أن يكون هذا الموقع مساحة
+        تجمع المعرفة والإبداع والتجربة،
+        وتترك أثرًا يتجاوز حدود الشاشة.
+    </p>
+
+    <a href="#contact" class="btn btn-primary">
+        تواصل معي
+        <span>←</span>
+    </a>
+
+</div>
 
 </div>
 
@@ -1955,64 +1854,33 @@ footer span{
      CONTACT
 ===================================================== -->
 
-<section class="contact" id="contact">
+<section id="contact" class="dark-section">
 
 <div class="container">
 
-    <div class="section-heading">
+<div class="section-head center">
 
-        <div class="small">
-            تواصل
-        </div>
-
-        <h2>
-            يسعدني تواصلكم
-        </h2>
-
-        <p>
-            يمكنكم التواصل معي عبر الوسائل التالية.
-        </p>
-
+    <div class="section-label">
+        05 — CONTACT
     </div>
 
+    <h2>
+        لنتواصل
+    </h2>
 
-    <div class="contact-box">
+    <p>
+        سيتم هنا إضافة روابط التواصل الرسمية
+        والبريد الإلكتروني.
+    </p>
 
-        <h3>
-            لنبدأ تواصلًا مثمرًا
-        </h3>
-
-        <p>
-            سيتم إضافة بيانات التواصل والروابط
-            الرسمية هنا.
-        </p>
-
-
-        <div class="socials">
-
-            <a href="#" class="social">
-                ✉ البريد الإلكتروني
-            </a>
-
-            <a href="#" class="social">
-                💬 واتساب
-            </a>
-
-            <a href="#" class="social">
-                𝕏 X
-            </a>
-
-            <a href="#" class="social">
-                ◎ Instagram
-            </a>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
 </section>
+
+
+</main>
 
 
 <!-- =====================================================
@@ -2021,13 +1889,37 @@ footer span{
 
 <footer>
 
-    <div class="footer-name">
+<div class="container">
+
+<div class="footer-inner">
+
+    <div class="footer-brand">
         محمد <span>الفقي</span>
     </div>
 
-    <p>
+    <div class="footer-copy">
         © 2026 محمد الفقي — جميع الحقوق محفوظة
-    </p>
+    </div>
+
+    <div class="footer-links">
+
+        <a href="#home">
+            الرئيسية
+        </a>
+
+        <a href="#about">
+            عني
+        </a>
+
+        <a href="#contact">
+            تواصل
+        </a>
+
+    </div>
+
+</div>
+
+</div>
 
 </footer>
 
